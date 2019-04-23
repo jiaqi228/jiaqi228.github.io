@@ -1,11 +1,11 @@
 ---
-title: "React学习笔记：State"
+title: "React学习笔记：State覆盖问题"
 categories:
   - React
-  - 学习笔记
+  - Learning Note
 tags:
   - React
-  - 学习笔记
+  - Learning Note
 ---
 
 关于React中的State（状态）管理，在学习时遇到了一些问题，后经解决特此记录。
@@ -15,7 +15,7 @@ tags:
 State的管理只能在 **Stateful** 的Component中进行。
 
 Stateful（createReactClass）：
-```Javascript
+```javascript
 const StarRating = createClass({
     displayName: 'StarRating',
     propTypes: {
@@ -54,7 +54,7 @@ const StarRating = createClass({
 > createReactClass创建Component的方法好像已经不被推荐。
 
 Stateful（extends React.Component）：
-```Javascript
+```javascript
 class StarRating extends Component {
     constructor(props) {
         super(props)
@@ -94,7 +94,7 @@ StarRating.defaultProps = {
 
 
 Stateless（Function）：
-```Javascript
+```javascript
 const Star = ({ selected = false, onClick = f => f }) =>
     <div className={(selected) ? "star selected" : "star"}
         onClick={onClick}>
