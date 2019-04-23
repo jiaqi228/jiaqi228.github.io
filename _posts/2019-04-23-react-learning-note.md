@@ -111,6 +111,8 @@ Star.propTypes = {
 - App 中使用2个Component: AddColorForm 和 ColorList
 - AddColorForm 是Stateful的Component
 - ColorList 是Stateful的Component
+- ColorList 中使用 Color
+- Color 是Stateful的Component
 
 在使用App时发现动作可以正常运行，但是State并没有被保持住，每次画面刷新都会清空State。经过不断地尝试/观察作者的代码，意识到了Stateful和Stateless的区别。由于AddColorForm和ColorList都是Stateful的Component，导致这2个Component的State覆盖了App的State。
 
@@ -118,5 +120,7 @@ Star.propTypes = {
 1. AddColorForm是Stateful & ColorList是Stateful
 2. AddColorForm是Stateful & ColorList是Stateless
 3. AddColorForm是Stateless & ColorList是Statefull
+
+而是否是Stateful的Component只针对App中使用的AddColorForm和ColorList有关系，因为这个State是从App中开始生成，在ColorList中使用，最后由ColorList传递回App。虽然Color是Stateful的Component，但由于Color中并没有回传State（仅从ColorList中取得使用），所以Color是否是Stateful并没有对App造成影响。
 
 由于还在学习React，还没有接触到更深层的内容（比如在Stateful的Component中传递State？State管理中间件？等等），所以理解如上。
