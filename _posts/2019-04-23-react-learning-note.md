@@ -8,6 +8,17 @@ tags:
   - Learning Note
 ---
 
+2019/04/25更新
+
+此文中的内容最终证实是理解错误。
+
+实际States是否正确被更新与Stateful和Stateless并无关系，仅和在传递States时是否正确有关。
+
+当时的代码无法正常使用的原因很有可能是由于ColorList或者AddColorForm中也使用了States。
+
+特此记录。
+---
+
 关于React中的State（状态）管理，在学习时遇到了一些问题，后经解决特此记录。
 
 纯粹的React中，State是在Component（组件）中进行管理的。Component其实分为Stateful和Stateless，Stateful就是通过createReactClass或者extends React.Component的方法创建的组件；Stateless是通过函数/方法创建的组件。
@@ -123,4 +134,4 @@ Star.propTypes = {
 
 而是否是Stateful的Component只针对App中使用的AddColorForm和ColorList有关系，因为这个State是从App中开始生成，在ColorList中使用，最后由ColorList传递回App。虽然Color是Stateful的Component，但由于Color中并没有回传State（仅从ColorList中取得使用），所以Color是否是Stateful并没有对App造成影响。
 
-由于还在学习React，还没有接触到更深层的内容（比如在Stateful的Component中传递State？State管理中间件？等等），所以理解如上。
+由于还在学习React，还没有接触到更深层的内容（比如在Stateful的Component中传递State？State管理中间件？等等），所以暂且理解如上。
